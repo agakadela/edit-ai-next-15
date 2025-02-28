@@ -44,13 +44,17 @@ const UploadImage = () => {
     >
       <CardContent className="flex flex-col h-full items-center justify-center px-2 py-24 text-xs">
         <input type="file" {...getInputProps()} />
-        <h1>Upload Image</h1>
-        <p className="text-muted-foreground text-2xl">
-          {isDragActive ? "Drop the image here" : "Start by uploading an image"}
-        </p>
-        <p className="text-muted-foreground">
-          Supported formats: .png, .jpg, .jpeg, .webp
-        </p>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h1>Upload Image</h1>
+          <p className="text-muted-foreground text-2xl">
+            {isDragActive
+              ? "Drop the image here"
+              : "Start by uploading an image"}
+          </p>
+          <p className="text-muted-foreground">
+            Supported formats: .png, .jpg, .jpeg, .webp
+          </p>
+        </div>
       </CardContent>
     </Card>
   );
