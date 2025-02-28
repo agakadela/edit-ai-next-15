@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
-import UploadImage from "@/components/upload/upload-image";
+
 import Layers from "@/components/layers/layers";
 import { ModeToggle } from "@/components/theme/mode-toggle";
 import ActiveImage from "./active-image";
+import UploadForm from "./upload/upload-form";
 
 export default function Editor() {
   return (
@@ -13,7 +13,7 @@ export default function Editor() {
           <ModeToggle />
         </div>
       </div>
-      <UploadImage />
+      <UploadForm />
       <ActiveImage />
       <Layers />
     </div>
