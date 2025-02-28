@@ -2,6 +2,7 @@ import { uploadImage } from "@/server/upload-image";
 import React from "react";
 import { useDropzone } from "react-dropzone";
 import { Card, CardContent } from "../ui/card";
+import { cn } from "@/lib/utils";
 
 const UploadImage = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -34,14 +35,22 @@ const UploadImage = () => {
   });
 
   return (
-    <Card {...getRootProps()}>
-      <CardContent>
+    <Card
+      {...getRootProps()}
+      className={cn(
+        "hover:curor-pointer hover:bg-secondary hover:border-primary transition-all ease-in-out",
+        `${isDragActive ? "animate-pulse border-primary bg-secondary" : ""}`
+      )}
+    >
+      <CardContent className="flex flex-col h-full items-center justify-center px-2 py-24 text-xs">
         <input type="file" {...getInputProps()} />
         <h1>Upload Image</h1>
-        <p>
+        <p className="text-muted-foreground text-2xl">
           {isDragActive ? "Drop the image here" : "Start by uploading an image"}
         </p>
-        <p>Supported formats: .png, .jpg, .jpeg, .webp</p>
+        <p className="text-muted-foreground">
+          Supported formats: .png, .jpg, .jpeg, .webp
+        </p>
       </CardContent>
     </Card>
   );
