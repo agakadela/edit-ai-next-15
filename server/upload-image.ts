@@ -13,10 +13,20 @@ cloudinary.config({
 const formData = z.object({
   image: z.instanceof(FormData),
 });
+
+type UploadResult =
+  | {
+      success: UploadApiResponse;
+      error?: never;
+    }
+  | {
+      success?: never;
+      error: string;
+    };
+
 export const uploadImage = actionClient
   .schema(formData)
-  .action(async ({ parsedInput: { image } }) => {
-    console.log(image);
+  .action(async ({ parsedInput: { image } }): Promise<UploadResult> => {
     const formImage = image.get("image");
 
     if (!formImage) return { error: "No image was provided" };
