@@ -22,7 +22,7 @@ export default function GenRemove() {
       <PopoverTrigger disabled={!activeLayer.url} asChild>
         <Button variant="outline" className="p-8">
           <span className="flex flex-col gap-1 items-center justify-center text-xs font-medium">
-            Content Aware Remove
+            Content Remove
             <Eraser size={16} />
           </span>
         </Button>
@@ -38,7 +38,7 @@ export default function GenRemove() {
           <Label htmlFor="selection">Selection</Label>
           <Input
             id="selection"
-            type="number"
+            type="text"
             className="col-span-2 h-8"
             value={activeTag}
             onChange={(e) => setActiveTag(e.target.value)}
@@ -56,8 +56,6 @@ export default function GenRemove() {
             });
 
             if (res?.data?.success) {
-              setGenerating(false);
-
               addLayer({
                 id: newLayerId,
                 url: res.data.success,
@@ -70,6 +68,7 @@ export default function GenRemove() {
               });
 
               setActiveLayer(newLayerId);
+              setGenerating(false);
             }
           }}
         >
