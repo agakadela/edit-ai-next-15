@@ -25,7 +25,7 @@ export default function UploadImage() {
       }
       if (acceptedFiles.length) {
         const formData = new FormData();
-        console.log(acceptedFiles[0]);
+
         formData.append("image", acceptedFiles[0]);
 
         const objectUrl = URL.createObjectURL(acceptedFiles[0]);

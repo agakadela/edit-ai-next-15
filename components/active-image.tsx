@@ -12,8 +12,7 @@ export default function ActiveImage() {
     (state) => state.layerComparisonMode
   );
   const layers = useLayerStore((state) => state.layers);
-  console.log(comparedLayers);
-  console.log(activeLayer);
+
   if (!activeLayer.url && comparedLayers.length === 0) return null;
 
   const renderLayer = (layer: Layer) => (
